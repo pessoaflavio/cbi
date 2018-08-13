@@ -1,0 +1,97 @@
+body{
+    margin:0;
+    padding: 0;
+    font-family: monospace;
+    font-size: 16px;
+    line-height: 30px;
+}
+.line{
+    fill: lightblue;
+    stroke-width: 1px;
+}
+.main{
+   box-sizing: border-box;
+    width: 100%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+.x-axis{
+    font-family: monospace;
+}
+.domain{
+    stroke: none;
+}
+.text{
+    width: 60%;
+    max-width: 800px;
+    font-family: 'Roboto';
+}
+.chart{
+    width: 100%;
+}
+.circle{
+    fill: #ffa777;
+    stroke: white;
+}
+.tick line{
+    stroke: lightgray;
+    stroke-dasharray: 2.2;
+    mix-blend-mode: multiply;
+}
+.tick text{
+    /*fill: lightgray;*/
+    letter-spacing: 1px;
+}
+.tooltip {
+    z-index: 10;
+    position: absolute;
+    text-align: left;
+    color: #1266ed;
+    width: 60px;
+    padding: 2px;
+    font-size: 12px;
+    line-height: 14px;
+    border: 0px;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+hr{
+    border: 0;
+    border-bottom: 1px dashed lightblue;
+    background: none;
+}
+h1{
+    font-family: 'Open Sans';
+    font-size: 60px;
+    line-height: 60px;
+    letter-spacing: 1px;
+    text-align: left;
+    color: #1266ed;
+}
+small
+{
+    color: #1266ed;
+}
+.graphicsTitle{
+    max-width: 800px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 60%;
+    border-top: 1px black dashed;
+    border-bottom: 1px black dashed;
+    color: black;
+    font-family: monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 3px;
+}
