@@ -1,5 +1,5 @@
-
 var width = parseInt(d3.select(".chart").style("width"));
+
 
 var t = d3.scaleTime()
 .domain([Date.parse(2008-00-00), Date.parse(2019-00-00)])
@@ -33,7 +33,6 @@ var line = d3.area()
 d3.csv('assets/amazon_stock.csv', function(error,data)
     {
     if (error) throw error;
-    console.log(data);
     
     d3
     .select('svg')
@@ -48,6 +47,12 @@ d3.csv('assets/amazon_stock.csv', function(error,data)
 )
 ;
 
+var chartDiv = $('.chart').offset();
+var top1 = chartDiv.top;
+var left1 = $('.chart').outerWidth();
+console.log(top1);
+console.log(left1/2);
+
 d3.csv('assets/amazon_data.csv', function(error, data)
     {
     if (error) throw error;
@@ -60,7 +65,7 @@ d3.csv('assets/amazon_data.csv', function(error, data)
     .attr('class','circle')
     .attr('cx',function(d){return t(Date.parse(d.date))})
     .attr('cy',200)
-    .attr('r',function(d){return 1.5*(Math.sqrt(d.value/Math.PI))})
+    .attr('r',function(d){return 1.2*(Math.sqrt(d.value/Math.PI))})
     .on('mouseover', function(d){
         var This = d3.select(this);
         
@@ -72,8 +77,8 @@ d3.csv('assets/amazon_data.csv', function(error, data)
         .attr('class','tooltip')
         .attr('id', ThisData.name[0] + ThisData.name[1])
         .style('opacity', 1)
-        .style("left", (d3.event.pageX) + "px")		
-        .style("top", (d3.event.pageY - 28) + "px")	
+        .style("left", (left1/2) - 70 + "px")		
+        .style("top", top1 + "px")	
         .html('<h2>' + ThisData.name + '</h2><hr>' + ThisData.value_name + '<hr> <small><i>Prior Investors:</i><br><br></small>' + ThisData.previous)
         ;
 
@@ -81,8 +86,7 @@ d3.csv('assets/amazon_data.csv', function(error, data)
     .on('mouseout', function(d){
         d3
         .selectAll('.tooltip')
-        .style('opacity', 0)
-        .html(' ')
+        .remove()
         ;
     })
     ;
@@ -95,6 +99,7 @@ d3.csv('assets/amazon_data.csv', function(error, data)
     }
 )
 ;
+
 
 
 // Define responsive behavior
@@ -120,7 +125,7 @@ function resize() {
 
 
       // Update the tick marks
-      yearAxis.ticks(Math.max(width/100, 2));
+      yearAxis.ticks(Math.max(width/60, 2));
 
 }
 
