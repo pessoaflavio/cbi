@@ -119,8 +119,8 @@ function resize() {
     ;
 
 
-//   // Update the tick marks
-//   xAxis.ticks(Math.max(width/75, 2));
+      // Update the tick marks
+      yearAxis.ticks(Math.max(width/100, 2));
 
 }
 
@@ -129,12 +129,3 @@ d3.select(window).on('resize', resize);
 
 // Call the resize function
 resize();
-
-// d3
-// .selectAll('.tick')
-// // .select('text')
-// .attr('text-anchor', 'left')
-// ;
-
-// <text fill="#000" y="403" dy="0.71em">2008</text>
-// body > div.main > div.chart > svg > g > g:nth-child(0) > text
